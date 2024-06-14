@@ -9,7 +9,7 @@ require('dotenv').config()
 
 // MongoDB
 mongoose
-  .connect("mongodb+srv://tienvu123d:HR87stkB04uFkPdX@cluster0.tsidaly.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+  .connect(process.env.MONGO_DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
