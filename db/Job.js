@@ -151,6 +151,12 @@ let schema = new mongoose.Schema(
         msg: "Invalid rating",
       },
     },
+    image: {
+      type: String,
+    },
+    companyName: {
+      type: String,
+    },
   },
   { collation: { locale: "en" } }
 );

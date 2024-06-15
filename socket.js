@@ -10,6 +10,7 @@ exports.connectSocket = (server) => {
   });
 
   io.on("connection", (socket) => {
+    console.log("Someone connected");
     socket.on("add-user", (user) => {
       onlineUsers.push({ information: user, socketId: socket.id });
     });
