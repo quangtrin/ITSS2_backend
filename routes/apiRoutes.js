@@ -557,6 +557,7 @@ router.post("/jobs/:id/applications", jwtAuth, (req, res) => {
                             jobId: job._id,
                             status: "applied",
                             sop: data.sop,
+                            resume: resumeData.secure_url,
                           });
                           application
                             .save()
@@ -1032,6 +1033,21 @@ router.get("/applicants", jwtAuth, (req, res) => {
     res.status(400).json({
       message: "You are not allowed to access applicants list",
     });
+  }
+});
+
+router.get("/appliedJobs", jwtAuth, (req, res) => {
+  const user = req.user;
+  if (user.type === "applicant") {
+    Application.find({
+      userId: user._id,
+    })
+      .then((applications) => {
+        res.json(applications);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
   }
 });
 

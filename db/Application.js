@@ -10,6 +10,9 @@ let schema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
+    resume: {
+      type: String,
+    },
     jobId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
